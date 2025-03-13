@@ -1,0 +1,29 @@
+export ZSH="/usr/share/oh-my-zsh"
+
+ZSH_ORIGIN="/usr/share/zsh"
+ZSH_AUTOSUGGESTIONS="$ZSH_ORIGIN/plugins/zsh-autosuggestions"
+ZSH_SYNTAX_HIGHLIGHTING="$ZSH_ORIGIN/plugins/zsh-syntax-highlighting"
+
+ZSH_THEME="agnoster"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=white,bold'
+
+source $ZSH/oh-my-zsh.sh
+source $ZSH_AUTOSUGGESTIONS/zsh-autosuggestions.zsh
+source $ZSH_SYNTAX_HIGHLIGHTING/zsh-syntax-highlighting.zsh
+
+plugins=(
+  git
+  docker
+  composer
+  sudo
+  npm
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  dotnet
+  pipenv
+)
+
+[[ -f ~/.zprofile ]] && . ~/.zprofile
+
+# Загрузите комплитаут
+autoload -Uz compinit && compinit

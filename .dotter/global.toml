@@ -1,0 +1,29 @@
+[helpers]
+install = ".dotter/helpers/install.rhai"
+
+[shell.files]
+".dotter/scripts" = { target = "", type = "template" }
+
+[zsh]
+depends = ["shell"]
+
+[powerline]
+depends = ["zsh"]
+
+[zsh-autosuggestions]
+depends = ["zsh"]
+
+[zsh-syntax-highlighting]
+depends = ["zsh"]
+
+[oh-my-zsh-git]
+depends = ["zsh", "powerline", "zsh-autosuggestions", "zsh-syntax-highlighting"]
+
+[oh-my-zsh-git.files]
+"zsh/zprofile" = "~/.zprofile"
+"zsh/zshrc" = { target = "~/.zshrc", type = "symbolic" }
+
+[oh-my-zsh-git.variables]
+
+[settings]
+default_target_type = "automatic"

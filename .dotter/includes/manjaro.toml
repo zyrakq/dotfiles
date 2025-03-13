@@ -1,0 +1,12 @@
+[shell.variables.installers.pacman]
+commands = { install = "sudo pacman -Syu" }
+packages = [
+    "powerline",
+    "zsh",
+    "zsh-autosuggestions",
+    "zsh-syntax-highlighting",
+]
+
+[shell.variables.installers.pamac]
+commands = { install = "sudo pamac install" }
+packages = ["oh-my-zsh-git"]
