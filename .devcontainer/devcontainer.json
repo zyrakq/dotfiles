@@ -1,0 +1,10 @@
+{
+    "name": "Dotter Dotfiles",
+    "dockerComposeFile": ["docker-compose.yml", "${localEnv:DOCKER_COMPOSE_FILE:docker-compose.yml}"],
+    "service": "arch-kde",
+    "shutdownAction": "stopCompose",
+    "workspaceFolder": "/config/.dotfiles",
+    "remoteUser": "abc",
+    "postCreateCommand": "sudo chown $(whoami) . && git clone git@github.com:zeritiq/dotfiles.git ."
+}
+  
