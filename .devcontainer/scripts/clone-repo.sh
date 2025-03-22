@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+UID=${PUID:-1000}
+GID=${PGID:-1000}
+
 cd "$WORKSPACE_FOLDER" || { echo "Error: Failed to change to project directory"; exit 1; }
 
 # Check if the directory is empty (including hidden files)
@@ -7,11 +10,8 @@ if [ -n "$(ls -A)" ]; then
     exit 0
 fi
 
-# Get the current user name
-CURRENT_USER=$(id -un)
-
 # Change the owner of the current directory
-if ! sudo chown -R "$CURRENT_USER:$CURRENT_USER" .; then
+if ! sudo chown -R "$UID:$GID" .; then
     echo "Error: Failed to change the owner of the directory"
     exit 1
 fi

@@ -9,6 +9,39 @@
         "REPO_URL": "git@github.com:zeritiq/dotfiles.git",
         "WORKSPACE_FOLDER": "/config/.dotfiles"
     },
-    "postCreateCommand": "sudo chmod +x /clone-repo.sh && /clone-repo.sh"
+    "forwardPorts": [3001],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                // VSCode
+                "vscode-icons-team.vscode-icons",
+                "aaron-bond.better-comments",
+                "IBM.output-colorizer",
+
+                // Docker
+                "ms-azuretools.vscode-docker",
+
+                // Git
+                "eamodio.gitlens",
+                "codezombiech.gitignore",
+
+                // Copilot
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+
+                "jock.svg",
+                "kamikillerto.vscode-colorize",
+
+                // For Dotfiles
+                "rogalmic.bash-debug",
+                "rhaiscript.vscode-rhai",
+                "tamasfe.even-better-toml"
+            ],
+            "settings": {
+                "workbench.iconTheme": "vscode-icons"
+            }
+        }
+    },
+    "postCreateCommand": "/clone-repo.sh"
 }
   

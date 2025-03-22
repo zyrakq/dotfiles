@@ -1,8 +1,13 @@
 FROM linuxserver/webtop:arch-kde as arch-kde
 
-COPY docker-entrypoint.sh /
-RUN chmod +x /docker-entrypoint.sh && /docker-entrypoint.sh
+RUN pacman -Syu --noconfirm
 
-COPY clone-repo.sh /
+COPY scripts/install-packages.sh /
+
+RUN chmod +x /install-packages.sh && /install-packages.sh
+
+COPY scripts/clone-repo.sh /
+
+RUN chmod +x /clone-repo.sh
 
 ENTRYPOINT [ "/init" ]

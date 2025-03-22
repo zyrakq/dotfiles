@@ -3,12 +3,14 @@ services:
     container_name: arch-kde
     build: .
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Etc/UTC
-      - TITLE=Dotfiles #optional
+      PUID: 1000
+      PGID: 1000
+      TZ: Etc/UTC
+      TITLE: Dotfiles #optional
     shm_size: "1gb" #optional
+    working_dir: /config/.dotfiles
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock #optional
       - arch-kde-home:/config
       - arch-kde-workspace:/config/.dotfiles
 
