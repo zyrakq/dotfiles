@@ -5,6 +5,10 @@
     "shutdownAction": "stopCompose",
     "workspaceFolder": "/config/.dotfiles",
     "remoteUser": "abc",
-    "postCreateCommand": "sudo chown $(whoami) . && git clone git@github.com:zeritiq/dotfiles.git ."
+    "remoteEnv": {
+        "REPO_URL": "git@github.com:zeritiq/dotfiles.git",
+        "WORKSPACE_FOLDER": "/config/.dotfiles"
+    },
+    "postCreateCommand": "sudo chmod +x /clone-repo.sh && /clone-repo.sh"
 }
   
