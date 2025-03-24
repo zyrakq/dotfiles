@@ -1,0 +1,8 @@
+includes = [".dotter/includes/arch.toml"]
+
+packages = ["oh-my-zsh-git"]
+
+[files]
+
+[variables]
+managers = ["pacman", "yay" ]
