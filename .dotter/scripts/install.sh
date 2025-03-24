@@ -1,5 +1,11 @@
 function install() {
+{{#if install}}
+    echo "Install flag is enabled. Proceeding with installation..."
     {{#each managers as |installer_name|}}
-        {{install installer_name ../installers ../dotter.packages}}
+    {{package_installer installer_name ../installers ../dotter.packages}}
     {{/each}}
+{{else}}
+    echo "Install flag is disabled. Skipping installation."
+{{/if}}
+    return 0
 }

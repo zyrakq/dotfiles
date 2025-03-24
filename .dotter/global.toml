@@ -1,8 +1,11 @@
 [helpers]
-install = ".dotter/helpers/install.rhai"
+package_installer = ".dotter/helpers/package-installer.rhai"
 
 [shell.files]
 ".dotter/scripts" = { target = "", type = "template" }
+
+[shell.variables]
+install = true
 
 [zsh]
 depends = ["shell"]
