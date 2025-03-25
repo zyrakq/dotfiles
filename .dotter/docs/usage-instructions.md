@@ -32,7 +32,15 @@ enabled = ["zsh", "new-package"]
    ```
 2. Dotter will automatically select `local.toml` or `<hostname>.toml` depending on the available files.
 
-### Using Binaries
+### 4. Adding Commands for Installers
+Commands for package managers (installers) are defined in `.toml` files under the `commands` section. For example:
+```toml
+[shell.variables.installers.pacman.commands]
+install = "sudo pacman -Syu"
+uninstall = "sudo pacman -Rns"
+```
+
+### 5. Using Binaries
 The project includes the binaries `./dotter` and `./dotter.arm`, which allow you to execute commands without installing Dotter.
 
 ### Useful Links

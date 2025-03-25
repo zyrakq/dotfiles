@@ -9,17 +9,17 @@ package_installer = ".dotter/helpers/package-installer.rhai"
 
 Example of the `package-installer.rhai` script:
 ```rhai
-fn get_install_command(installer_name, installers, packages) {
+fn get_package_command(installer_name, installers, command_type, packages) {
     if installers.contains(installer_name) {
         let installer = installers[installer_name];
-        if installer.contains("commands") && installer.commands.contains("install") {
-            let command = installer.commands.install;
+        if installer.contains("commands") && installer.commands.contains(command_type) {
+            let command = installer.commands[command_type];
             if !command.is_empty() {
                 let installer_packages = installer.packages;
-                let packages_to_install = packages.filter(|pkg| installer_packages.contains(pkg));
-                if packages_to_install.len() > 0 {
+                let packages_to_process = packages.filter(|pkg| installer_packages.contains(pkg));
+                if packages_to_process.len() > 0 {
                     let packages_str = "";
-                    for pkg in packages_to_install {
+                    for pkg in packages_to_process {
                         if !pkg.is_empty() {
                             packages_str += " " + pkg;
                         }
@@ -46,7 +46,7 @@ Templates can call functions from connected scripts. For example, in `install.sh
 function install() {
     {{#if install}}
         {{#each managers as |installer_name|}}
-            {{package_installer installer_name ../installers ../dotter.packages}}
+            {{package_installer installer_name ../installers "install" ../dotter.packages}}
         {{/each}}
     {{/if}}
 }
@@ -57,6 +57,7 @@ Environment variables that are required for deployment should be added to the `s
 ```toml
 [shell.variables]
 install = true
+uninstall = true
 ```
 
 ### Notes:
@@ -82,12 +83,6 @@ Dotter supports hooks for executing commands before or after deployment. These f
 - After deployment: `.dotter/post_deploy.sh`
 - Before removal: `.dotter/pre_undeploy.sh`
 - After removal: `.dotter/post_undeploy.sh`
-
-## 6. Example of the Final Process
-1. The `package-installer.rhai` script generates commands for installing packages.
-2. The `install.sh` template calls functions from `package-installer.rhai`.
-3. The template is rendered into `.dotter/pre_deploy.sh`.
-4. The final script is executed, embedding commands into the deployment process.
 
 ## Using Binaries
 The project includes binaries `./dotter` and `./dotter.arm`, which allow executing commands without installing Dotter. For example:

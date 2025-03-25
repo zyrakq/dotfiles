@@ -7,6 +7,7 @@ This project uses the following technologies and conventions:
 1. **Dotter**: A dotfiles manager for templating and scripting configurations.
 2. **Handlebars**: Used for templating with support for conditional logic and loops.
 3. **Rhai**: A lightweight scripting language for adding logic to templates.
+4. **TOML**: A configuration file format used for defining variables, dependencies, and settings.
 
 ## Guidelines
 1. Always include the filepath as a comment at the start of each code block.

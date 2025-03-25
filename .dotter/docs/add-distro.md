@@ -13,10 +13,13 @@ This guide describes the steps to add a new type of distribution to the dotfiles
    ```
 
 ## 2. Define Commands and Packages
-In the `<distro>.toml` file, specify the commands for installing packages and the list of packages. Example for Ubuntu:
+In the `<distro>.toml` file, specify the commands for installing and uninstalling packages, as well as the list of packages. Example for Ubuntu:
 ```toml
+[shell.variables.installers.apt.commands]
+install = "sudo apt update && sudo apt install -y"
+uninstall = "sudo apt remove --purge -y"
+
 [shell.variables.installers.apt]
-commands = { install = "sudo apt update && sudo apt install -y" }
 packages = [
     "zsh",
     "zsh-autosuggestions",
@@ -45,20 +48,7 @@ managers = ["apt"]
 
 ## 5. Testing
 1. Verify that all dependencies and files are configured properly.
-2. Ensure that the installation commands work on your distribution.
-
-## Example Final File
-Example file for Fedora:
-```toml
-[shell.variables.installers.dnf]
-commands = { install = "sudo dnf install -y" }
-packages = [
-    "zsh",
-    "zsh-autosuggestions",
-    "zsh-syntax-highlighting",
-    "powerline",
-]
-```
+2. Ensure that the installation and uninstallation commands work on your distribution.
 
 ## Useful Links
 - [Dotter Wiki](https://github.com/SuperCuber/dotter/wiki)

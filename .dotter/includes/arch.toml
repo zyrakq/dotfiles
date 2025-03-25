@@ -1,5 +1,4 @@
 [shell.variables.installers.pacman]
-commands = { install = "sudo pacman -Syu" }
 packages = [
     "powerline",
     "zsh",
@@ -7,6 +6,13 @@ packages = [
     "zsh-syntax-highlighting",
 ]
 
+[shell.variables.installers.pacman.commands]
+install = "sudo pacman -Syu"
+uninstall = "sudo pacman -Rns"
+
 [shell.variables.installers.yay]
-commands = { install = "yay -Syu" }
 packages = ["oh-my-zsh-git"]
+
+[shell.variables.installers.yay.commands]
+install = "yay -Syu"
+uninstall = "yay -Rns"

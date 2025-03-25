@@ -6,6 +6,7 @@ package_installer = ".dotter/helpers/package-installer.rhai"
 
 [shell.variables]
 install = true
+uninstall = true
 
 [zsh]
 depends = ["shell"]
