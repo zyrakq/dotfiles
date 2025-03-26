@@ -6,8 +6,8 @@ COPY scripts/install-packages.sh /
 
 RUN chmod +x /install-packages.sh && /install-packages.sh
 
-COPY scripts/clone-repo.sh /
+COPY scripts/ /
 
-RUN chmod +x /clone-repo.sh
+RUN chmod +x /setup_container.sh /clone-repo.sh
 
 ENTRYPOINT [ "/init" ]

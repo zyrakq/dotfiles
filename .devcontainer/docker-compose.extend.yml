@@ -1,3 +1,0 @@
-services:
-  arch-kde:
-    network_mode: "container:wg-devcontainer-client"

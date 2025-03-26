@@ -1,5 +1,5 @@
-{
-    "name": "Dotter Dotfiles",
+{   
+    "name": "Dotfiles Arch Kde",
     "dockerComposeFile": ["docker-compose.yml", "${localEnv:DOCKER_COMPOSE_FILE:docker-compose.yml}"],
     "service": "arch-kde",
     "shutdownAction": "stopCompose",
@@ -83,6 +83,5 @@
             }
         }
     },
-    "postCreateCommand": "/clone-repo.sh"
+    "postCreateCommand": "/setup_container.sh && /clone-repo.sh"
 }
-  

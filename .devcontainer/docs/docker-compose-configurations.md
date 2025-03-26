@@ -2,18 +2,20 @@
 
 This document explains the usage of `docker-compose.yml` and extendable configurations in the development container setup.
 
-## 1. Default Configuration: `docker-compose.yml`
+## 1. Default Configurations
 
-The default `docker-compose.yml` file defines the main services and volumes for the development container. It is always included in the setup and provides the base configuration for the container.
+### 1.1 `arch-kde/docker-compose.yml`
 
-### Key Features:
+The `arch-kde/docker-compose.yml` file defines the main services and volumes for the `arch-kde` development container.
+
+#### Key Features:
 - Defines the primary service (`arch-kde`) for the development environment.
 - Mounts volumes for persistent storage:
   - `arch-kde-home`: Stores user-specific configuration.
   - `arch-kde-workspace`: Maps the dotfiles repository to the container.
 - Sets environment variables such as `PUID`, `PGID`, and `TZ`.
 
-### Example:
+#### Example:
 ```yaml
 services:
   arch-kde:
@@ -36,18 +38,61 @@ volumes:
   arch-kde-workspace:
 ```
 
-## 2. Extendable Configuration: `docker-compose.extend.yml`
+### 1.2 `arch/docker-compose.yml`
 
-The `docker-compose.extend.yml` file is an example of how to extend the default configuration. It demonstrates how to run the development container in the network of another container, such as a WireGuard client.
+The `arch/docker-compose.yml` file defines the main services and volumes for the `arch` development container.
 
-### Key Features:
-- Sets the `network_mode` to use the network of the `wg-devcontainer-client` container.
-- Useful for scenarios where the development container needs to share the network stack with another container.
+#### Key Features:
+- Defines the primary service (`arch`) for the development environment.
+- Mounts volumes for persistent storage:
+  - `arch-home`: Stores user-specific configuration.
+  - `arch-workspace`: Maps the dotfiles repository to the container.
+- Sets environment variables such as `PUID`, `PGID`, and `TZ`.
 
-### Example:
+#### Example:
+```yaml
+services:
+  arch:
+    container_name: arch
+    build: .
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Etc/UTC
+      TITLE: Dotfiles #optional
+    shm_size: "1gb" #optional
+    working_dir: /config/.dotfiles
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock #optional
+      - arch-home:/config
+      - arch-workspace:/config/.dotfiles
+
+volumes:
+  arch-home:
+  arch-workspace:
+```
+
+## 2. Extendable Configurations
+
+### 2.1 `arch-kde/docker-compose.extend.yml`
+
+The `arch-kde/docker-compose.extend.yml` file demonstrates how to extend the `arch-kde` configuration to run in the network of another container.
+
+#### Example:
 ```yaml
 services:
   arch-kde:
+    network_mode: "container:wg-devcontainer-client"
+```
+
+### 2.2 `arch/docker-compose.extend.yml`
+
+The `arch/docker-compose.extend.yml` file demonstrates how to extend the `arch` configuration to run in the network of another container.
+
+#### Example:
+```yaml
+services:
+  arch:
     network_mode: "container:wg-devcontainer-client"
 ```
 
@@ -80,7 +125,8 @@ export DOCKER_COMPOSE_FILE=docker-compose.extend.yml
    Check the logs to ensure that the extended configuration is applied correctly.
 
 ## 5. Notes
-- The `docker-compose.extend.yml` file is just an example. You can create additional configuration files as needed.
+- Each configuration (`arch-kde`, `arch`) has its own folder with specific files.
+- Shared scripts and files remain in the root `.devcontainer` folder.
 - Ensure that the `DOCKER_COMPOSE_FILE` variable points to a valid file in the `.devcontainer` directory.
 
 For more details, refer to the [Docker Compose documentation](https://docs.docker.com/compose/).

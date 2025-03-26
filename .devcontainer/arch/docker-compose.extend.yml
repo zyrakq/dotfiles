@@ -1,0 +1,3 @@
+services:
+  arch:
+    network_mode: "container:wg-devcontainer-client"

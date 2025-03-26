@@ -1,0 +1,19 @@
+services:
+  arch:
+    container_name: arch
+    build: .
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Etc/UTC
+      TITLE: Dotfiles #optional
+    shm_size: "1gb" #optional
+    working_dir: /config/.dotfiles
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock #optional
+      - arch-home:/config
+      - arch-workspace:/config/.dotfiles
+
+volumes:
+  arch-home:
+  arch-workspace:

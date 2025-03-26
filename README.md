@@ -8,6 +8,22 @@ These are my personal dotfiles for deploying and configuring environments on var
 - Final files are generated using the [Handlebars](https://handlebarsjs.com/guide) templating engine.
 - Scripts are written in the [Rhai](https://github.com/rhaiscript/rhai) language.
 
+## DevContainer Configurations
+
+The project includes two DevContainer configurations for testing the installation and setup of packages and dotfiles:
+
+1. **`arch-kde`**:  
+   A configuration with a pre-installed graphical environment for testing packages and dotfiles that depend on GUI components.  
+   **Access**: The graphical environment is streamed to your browser via `kasmvnc` on ports `3000` and `3001`.
+
+2. **`arch`**:  
+   A minimal configuration without a graphical environment, designed for testing setups where the GUI is installed later.  
+   **Access**: The terminal is streamed to your browser via `kasmvnc` on ports `3000` and `3001`. You can later configure your graphical environment using this setup.
+
+Each configuration is located in its respective folder under `.devcontainer`:
+- `arch-kde`: Contains files for the graphical environment configuration.
+- `arch`: Contains files for the minimal configuration.
+
 ## Documentation
 - More about Dotter: [Dotter Wiki](https://github.com/SuperCuber/dotter/wiki).
 
@@ -26,9 +42,13 @@ Follow these steps to open the development container in VSCode:
    ```
 
 3. **Set Up Environment Variables**:
-   - Copy the example `.env` file:
+   - Copy the example `.env` file from the desired configuration folder:
      ```bash
-     cp .devcontainer/.env.example .devcontaiвner/.env
+     cp .devcontainer/arch-kde/.env.example .devcontainer/.env
+     ```
+     or
+     ```bash
+     cp .devcontainer/arch/.env.example .devcontainer/.env
      ```
    - Modify the `.env` file if necessary.
 
