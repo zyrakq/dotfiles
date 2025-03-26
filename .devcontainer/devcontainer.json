@@ -9,7 +9,7 @@
         "REPO_URL": "git@github.com:zeritiq/dotfiles.git",
         "WORKSPACE_FOLDER": "/config/.dotfiles"
     },
-    "forwardPorts": [3001],
+    "forwardPorts": [3000, 3001],
     "customizations": {
         "vscode": {
             "extensions": [
