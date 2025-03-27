@@ -1,0 +1,7 @@
+{
+	"homepage": "https://chat.openai.com/chat",
+	"homepage_is_newtabpage": true,
+	"browser": {
+		"theme":{"color_scheme":2}
+	}
+}

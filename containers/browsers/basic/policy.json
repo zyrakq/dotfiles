@@ -1,0 +1,36 @@
+{
+  "ShowHomeButton": true,
+  "OsColorMode": "dark",
+  "ExtensionSettings": {
+    "padekgcemlokbadohgkifijomclgjgif": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    }
+  },
+  "ManagedBookmarks": [
+    {
+      "toplevel_name": "My managed bookmarks folder"
+    },
+    {
+      "name": "Google",
+      "url": "google.com"
+    },
+    {
+      "name": "Youtube",
+      "url": "youtube.com"
+    },
+    {
+      "children": [
+        {
+          "name": "Chromium",
+          "url": "chromium.org"
+        },
+        {
+          "name": "Chromium Developers",
+          "url": "dev.chromium.org"
+        }
+      ],
+      "name": "Chrome links"
+    }
+  ]
+}
