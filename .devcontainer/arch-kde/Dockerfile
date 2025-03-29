@@ -2,9 +2,7 @@ FROM linuxserver/webtop:arch-kde as arch-kde
 
 RUN pacman -Syu --noconfirm
 
-COPY scripts/install-packages.sh /
-
-RUN chmod +x /install-packages.sh && /install-packages.sh
+RUN pacman -Sy git --noconfirm
 
 COPY scripts/ /
 

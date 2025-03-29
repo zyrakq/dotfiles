@@ -2,9 +2,7 @@ FROM ghcr.io/linuxserver/baseimage-kasmvnc:arch as arch
 
 RUN pacman -Syu --noconfirm
 
-COPY scripts/install-packages.sh /
-
-RUN chmod +x /install-packages.sh && /install-packages.sh
+RUN pacman -Sy git --noconfirm
 
 COPY scripts/ /
 
