@@ -1,6 +1,12 @@
+# Pc
 includes = [".dotter/includes/manjaro.toml"]
 
-packages = ["oh-my-zsh-git"]
+packages = [
+    "nano",
+    "bash",
+    "oh-my-zsh-git",
+    "git"
+]
 
 [files]
 

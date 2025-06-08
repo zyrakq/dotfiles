@@ -1,6 +1,12 @@
+# TimeWeb Netherlands
 includes = [".dotter/includes/arch.toml"]
 
-packages = ["oh-my-zsh-git"]
+packages = [
+    "nano",
+    "bash",
+    "oh-my-zsh-git",
+    "git"
+]
 
 [files]
 

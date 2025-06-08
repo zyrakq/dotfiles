@@ -1,0 +1,25 @@
+[shell.variables]
+os = "ubuntu"
+
+[shell.variables.installers.apt]
+packages = [
+    "nano",
+    "bash",
+    "zsh",
+    "git",
+    "openssh-server"
+    # Note: zsh-autosuggestions и zsh-syntax-highlighting нужно устанавливать отдельно в Ubuntu
+]
+
+[shell.variables.installers.apt.commands]
+install = "sudo apt update && sudo apt install -y"
+uninstall = "sudo apt remove -y"
+
+[shell.variables.installers.snap]
+packages = [
+    # Можно добавить snap пакеты если нужно
+]
+
+[shell.variables.installers.snap.commands]
+install = "sudo snap install"
+uninstall = "sudo snap remove"

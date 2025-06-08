@@ -7,6 +7,51 @@ These are my personal dotfiles for deploying and configuring environments on var
 - The project includes binaries `./dotter` and `./dotter.arm`, which allow running commands without installing Dotter.
 - Final files are generated using the [Handlebars](https://handlebarsjs.com/guide) templating engine.
 - Scripts are written in the [Rhai](https://github.com/rhaiscript/rhai) language.
+- **Multi-OS Support**: Automatic post-installation scripts for different operating systems (Arch, Manjaro, Ubuntu).
+- **Package Management**: Automated package installation and configuration for various distributions.
+
+## Usage
+
+### Basic Commands
+
+Deploy dotfiles to your system:
+```bash
+./dotter deploy --force
+```
+
+Remove deployed dotfiles:
+```bash
+./dotter undeploy
+```
+
+**Note**: The `--force` flag overwrites existing files. Use with caution.
+
+### Post-Installation Scripts
+
+The project supports OS-specific post-installation scripts that run automatically after package installation:
+
+**Directory Structure**:
+```
+{package}/
+├── {os}/                    # OS-specific scripts
+│   ├── post-install.sh     # Runs after package installation
+│   └── post-uninstall.sh   # Runs before package removal
+├── post-install.sh         # Fallback script for unknown OS
+└── post-uninstall.sh       # Fallback script
+```
+
+**Supported Operating Systems**:
+- **Arch Linux**: Uses `arch/` directory
+- **Manjaro**: Uses `arch/` directory (same as Arch)
+- **Ubuntu**: Uses `ubuntu/` directory
+- **Other**: Uses fallback scripts in root directory
+
+**Example** (`openssh` package):
+- Arch/Manjaro: Configures `ssh-agent.service`
+- Ubuntu: Configures `ssh-agent@$USER.service`
+- Generic: Attempts both configurations automatically
+
+The OS is automatically detected through configuration variables defined in include files (`.dotter/includes/{os}.toml`).
 
 ## DevContainer Configurations
 

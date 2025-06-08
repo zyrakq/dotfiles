@@ -4,6 +4,9 @@ function install() {
     {{#each managers as |installer_name|}}
     {{package_installer installer_name ../installers "install" ../dotter.packages}}
     {{/each}}
+    
+    echo "Running post-install scripts..."
+    {{post_script_runner dotter.packages "install" os}}
 {{else}}
     echo "Install flag is disabled. Skipping installation."
 {{/if}}

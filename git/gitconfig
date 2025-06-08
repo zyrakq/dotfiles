@@ -1,0 +1,5 @@
+[user]
+	email = serg.shehov@tutanota.com
+	name = Zeritiq
+[core]
+	editor = code --wait

@@ -1,17 +1,23 @@
+[shell.variables]
+os = "arch"
+
 [shell.variables.installers.pacman.commands]
-install = "sudo pacman -Syu"
-uninstall = "sudo pacman -Rns"
+install = "sudo pacman -Syu --noconfirm"
+uninstall = "sudo pacman -Rns --noconfirm"
 
 [shell.variables.installers.pacman]
 packages = [
+    "nano",
     "powerline",
+    "bash",
     "zsh",
     "zsh-autosuggestions",
     "zsh-syntax-highlighting",
+    "git"
 ]
 
 [shell.variables.installers.pamac.commands]
-install = "sudo pamac install"
+install = "sudo pamac install --no-confirm"
 uninstall = "sudo pamac remove --no-confirm"
 
 [shell.variables.installers.pamac]

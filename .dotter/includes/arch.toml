@@ -1,18 +1,25 @@
+[shell.variables]
+os = "arch"
+
 [shell.variables.installers.pacman]
 packages = [
+    "nano",
     "powerline",
+    "bash",
     "zsh",
     "zsh-autosuggestions",
     "zsh-syntax-highlighting",
+    "git",
+    "openssh"
 ]
 
 [shell.variables.installers.pacman.commands]
-install = "sudo pacman -Syu"
-uninstall = "sudo pacman -Rns"
+install = "sudo pacman -Syu --noconfirm"
+uninstall = "sudo pacman -Rns --noconfirm"
 
 [shell.variables.installers.yay]
 packages = ["oh-my-zsh-git"]
 
 [shell.variables.installers.yay.commands]
-install = "yay -Syu"
-uninstall = "yay -Rns"
+install = "yay -Syu --noconfirm"
+uninstall = "yay -Rns --noconfirm"

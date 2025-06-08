@@ -1,12 +1,31 @@
 [helpers]
 package_installer = ".dotter/helpers/package-installer.rhai"
+post_script_runner = ".dotter/helpers/post-script-runner.rhai"
 
 [shell.files]
 ".dotter/scripts" = { target = "", type = "template" }
+"shell/profile" = { target = "~/.profile", type = "template" }
 
 [shell.variables]
 install = true
 uninstall = true
+
+[nano]
+depends = ["shell"]
+
+[openssh]
+depends = ["shell"]
+
+[openssh.files]
+"openssh/ssh-agent.service" = "~/.config/systemd/user/ssh-agent.service"
+
+[bash]
+depends = ["shell"]
+
+[bash.files]
+"bash/bash_profile" = { target = "~/.bash_profile", type = "symbolic" }
+
+[bash.variables]
 
 [zsh]
 depends = ["shell"]
@@ -28,6 +47,12 @@ depends = ["zsh", "powerline", "zsh-autosuggestions", "zsh-syntax-highlighting"]
 "zsh/zshrc" = { target = "~/.zshrc", type = "symbolic" }
 
 [oh-my-zsh-git.variables]
+
+[git]
+depends = ["shell"]
+
+[git.files]
+"git/gitconfig" = "~/.gitconfig"
 
 [settings]
 default_target_type = "automatic"

@@ -23,7 +23,7 @@ plugins=(
   pipenv
 )
 
-[[ -f ~/.zprofile ]] && . ~/.zprofile
+[[ -f ~/.profile ]] && . ~/.profile
 
 # Загрузите комплитаут
 autoload -Uz compinit && compinit

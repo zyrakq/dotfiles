@@ -1,0 +1,9 @@
+{{#if dotter.packages.nano}}
+export EDITOR="/usr/bin/nano"
+{{/if}}
+{{#if dotter.packages.openssh}}
+# SSH Agent setup только если systemd доступен
+if command -v systemctl >/dev/null 2>&1 && systemctl --user status >/dev/null 2>&1; then
+    export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+fi
+{{/if}}
