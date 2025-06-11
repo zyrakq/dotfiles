@@ -1,6 +1,10 @@
 function install() {
 {{#if install}}
     echo "Install flag is enabled. Proceeding with installation..."
+    
+    echo "Running pre-install scripts..."
+    {{pre_installer dotter.packages os}}
+    
     {{#each managers as |installer_name|}}
     {{package_installer installer_name ../installers "install" ../dotter.packages}}
     {{/each}}

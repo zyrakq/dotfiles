@@ -1,6 +1,6 @@
 # Git Commit Template
 
-This directory contains a git commit template and installation script for maintaining consistent commit message formatting in English.
+This directory contains a git commit template and installation script for maintaining consistent commit message formatting.
 
 ## Template Structure
 
@@ -12,7 +12,7 @@ The commit template includes:
 
 ## Installation
 
-To install the English commit template for your repository:
+To install the commit template for your repository:
 
 ```bash
 ./.github/install-commit-template.sh

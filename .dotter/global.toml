@@ -1,4 +1,5 @@
 [helpers]
+pre_installer = ".dotter/helpers/pre-installer.rhai"
 package_installer = ".dotter/helpers/package-installer.rhai"
 post_script_runner = ".dotter/helpers/post-script-runner.rhai"
 
@@ -47,6 +48,9 @@ depends = ["zsh", "powerline", "zsh-autosuggestions", "zsh-syntax-highlighting"]
 "zsh/zshrc" = { target = "~/.zshrc", type = "symbolic" }
 
 [oh-my-zsh-git.variables]
+
+[yay]
+depends = ["shell"]
 
 [git]
 depends = ["shell"]

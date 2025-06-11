@@ -21,10 +21,10 @@ fn get_package_command(installer_name, installers, command_type, packages) {
     return "";
 }
 
-// Извлечение значений installer_name, installers, команды и списка пакетов из params и вызов функции
+// Extract installer_name, installers, command and package list from params and call function
 let installer_name = params[0];
 let installers = params[1];
-let command_type = params[2]; // "install" или "uninstall"
+let command_type = params[2]; // "install" or "uninstall"
 let packages_dict = params[3];
 let packages = packages_dict.keys();
 get_package_command(installer_name, installers, command_type, packages);

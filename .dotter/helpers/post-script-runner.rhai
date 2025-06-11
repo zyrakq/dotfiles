@@ -2,7 +2,7 @@ fn run_post_scripts(packages, script_type, os_var) {
     let commands = [];
     
     for pkg in packages {
-        // Создаем команду которая пробует OS-специфичный скрипт, затем общий fallback
+        // Create command that tries OS-specific script, then general fallback
         let run_command = "if [ -f " + pkg + "/" + os_var + "/post-" + script_type + ".sh ]; then " +
                          "bash " + pkg + "/" + os_var + "/post-" + script_type + ".sh; " +
                          "elif [ -f " + pkg + "/post-" + script_type + ".sh ]; then " +
@@ -12,7 +12,7 @@ fn run_post_scripts(packages, script_type, os_var) {
         commands.push(run_command);
     }
     
-    // Объединяем все команды через ; вместо &&
+    // Join all commands with ; instead of &&
     let result = "";
     for cmd in commands {
         if result.len() > 0 {
@@ -24,10 +24,10 @@ fn run_post_scripts(packages, script_type, os_var) {
     return result;
 }
 
-// Извлечение параметров
+// Extract parameters
 let packages_dict = params[0];
-let script_type = params[1];  // "install" или "uninstall"
-let os_var = params[2];       // переменная os из dotter (arch/ubuntu/etc)
+let script_type = params[1];  // "install" or "uninstall"
+let os_var = params[2];       // os variable from dotter (arch/ubuntu/etc)
 let packages = packages_dict.keys();
 
 run_post_scripts(packages, script_type, os_var);
