@@ -8,14 +8,14 @@ set -e
 echo "Installing zsh-syntax-highlighting..."
 
 # Check if oh-my-zsh is installed
-if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}" ]; then
+if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}" ]; then
     echo "Error: oh-my-zsh not found. Please install oh-my-zsh first."
-    echo "Expected directory: ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"
+    echo "Expected directory: ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
     exit 1
 fi
 
 # Define plugin directory
-PLUGIN_DIR="${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+PLUGIN_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 
 # Check if already installed
 if [ -d "$PLUGIN_DIR" ]; then
