@@ -1,7 +1,14 @@
 # Tess (ubuntu) selectel-moscow
 includes = [".dotter/includes/ubuntu.toml"]
 
-packages = ["nano", "bash", "zsh", "git", "snapd", "openssh-server"]
+packages = [
+    "nano",
+    "bash",
+    "zsh-autosuggestions",
+    "git",
+    "snapd",
+    "openssh-server",
+]
 
 [files]
 

@@ -5,7 +5,11 @@
 		},
 		{
 			"path": "/config",
-			"name": "home"
+			"name": "home-config"
+		},
+		{
+			"path": "/home/vscode",
+			"name": "home-vscode"
 		}
 	]
 }

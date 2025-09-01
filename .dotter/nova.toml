@@ -1,14 +1,17 @@
 # vds.sh Netherlands
-includes = [".dotter/includes/arch.toml"]
+includes = [".dotter/includes/ubuntu.toml"]
 
 packages = [
     "nano",
     "bash",
-    "oh-my-zsh-git",
-    "git"
+    "zsh-autosuggestions",
+    "zsh-syntax-highlighting",
+    "git",
+    "snapd",
+    "openssh-server",
 ]
 
 [files]
 
 [variables]
-managers = ["pacman", "yay" ]
+managers = ["apt"]

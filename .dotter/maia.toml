@@ -4,8 +4,10 @@ includes = [".dotter/includes/manjaro.toml"]
 packages = [
     "nano",
     "bash",
-    "oh-my-zsh-git",
-    "git"
+    "zsh-autosuggestions",
+    "zsh-syntax-highlighting",
+    "git",
+    "openssh",
 ]
 
 [files]

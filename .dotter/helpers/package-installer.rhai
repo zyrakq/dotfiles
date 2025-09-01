@@ -26,5 +26,13 @@ let installer_name = params[0];
 let installers = params[1];
 let command_type = params[2]; // "install" or "uninstall"
 let packages_dict = params[3];
-let packages = packages_dict.keys();
+
+// Filter only active packages (those with value true)
+let active_packages = [];
+for pkg in packages_dict.keys() {
+    if packages_dict[pkg] == true {
+        active_packages.push(pkg);
+    }
+}
+let packages = active_packages;
 get_package_command(installer_name, installers, command_type, packages);

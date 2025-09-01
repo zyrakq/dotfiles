@@ -1,12 +1,12 @@
-fn run_post_scripts(packages, script_type, os_var) {
+fn run_scripts(packages, script_type, os_var) {
     let commands = [];
     
     for pkg in packages {
         // Create command that tries OS-specific script, then general fallback
-        let run_command = "if [ -f " + pkg + "/" + os_var + "/post-" + script_type + ".sh ]; then " +
-                         "bash " + pkg + "/" + os_var + "/post-" + script_type + ".sh; " +
-                         "elif [ -f " + pkg + "/post-" + script_type + ".sh ]; then " +
-                         "bash " + pkg + "/post-" + script_type + ".sh; " +
+        let run_command = "if [ -f " + pkg + "/" + os_var + "/" + script_type + ".sh ]; then " +
+                         "bash " + pkg + "/" + os_var + "/" + script_type + ".sh; " +
+                         "elif [ -f " + pkg + "/" + script_type + ".sh ]; then " +
+                         "bash " + pkg + "/" + script_type + ".sh; " +
                          "fi || true";
         
         commands.push(run_command);
@@ -38,4 +38,4 @@ for pkg in packages_dict.keys() {
 }
 let packages = active_packages;
 
-run_post_scripts(packages, script_type, os_var);
+run_scripts(packages, script_type, os_var);

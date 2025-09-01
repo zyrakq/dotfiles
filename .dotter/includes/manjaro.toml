@@ -6,19 +6,11 @@ install = "sudo pacman -Syu --noconfirm"
 uninstall = "sudo pacman -Rns --noconfirm"
 
 [shell.variables.installers.pacman]
-packages = [
-    "nano",
-    "powerline",
-    "bash",
-    "zsh",
-    "zsh-autosuggestions",
-    "zsh-syntax-highlighting",
-    "git"
-]
+packages = ["nano", "powerline", "bash", "zsh", "git"]
 
 [shell.variables.installers.pamac.commands]
 install = "sudo pamac install --no-confirm"
 uninstall = "sudo pamac remove --no-confirm"
 
 [shell.variables.installers.pamac]
-packages = ["oh-my-zsh-git"]
+packages = []

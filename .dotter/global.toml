@@ -1,7 +1,8 @@
 [helpers]
-pre_installer = ".dotter/helpers/pre-installer.rhai"
+pre_script_runner = ".dotter/helpers/pre-script-runner.rhai"
 package_installer = ".dotter/helpers/package-installer.rhai"
 post_script_runner = ".dotter/helpers/post-script-runner.rhai"
+active_packages_filter = ".dotter/helpers/active-packages-filter.rhai"
 
 [shell.files]
 ".dotter/scripts" = { target = "", type = "template" }
@@ -38,23 +39,23 @@ depends = ["shell"]
 [zsh]
 depends = ["shell"]
 
+[zsh.files]
+"zsh/zprofile" = "~/.zprofile"
+
 [powerline]
 depends = ["zsh"]
 
+[oh-my-zsh]
+depends = ["zsh", "powerline"]
+
+[oh-my-zsh.files]
+"oh-my-zsh/zshrc" = { target = "~/.zshrc", type = "symbolic" }
+
 [zsh-autosuggestions]
-depends = ["zsh"]
+depends = ["oh-my-zsh"]
 
 [zsh-syntax-highlighting]
-depends = ["zsh"]
-
-[oh-my-zsh-git]
-depends = ["zsh", "powerline", "zsh-autosuggestions", "zsh-syntax-highlighting"]
-
-[oh-my-zsh-git.files]
-"zsh/zprofile" = "~/.zprofile"
-"zsh/zshrc" = { target = "~/.zshrc", type = "symbolic" }
-
-[oh-my-zsh-git.variables]
+depends = ["oh-my-zsh"]
 
 [snapd]
 depends = ["shell"]
@@ -65,8 +66,12 @@ depends = ["shell"]
 [git]
 depends = ["shell"]
 
+[git.variables]
+git_email = "serg.shehov@tutanota.com"
+git_name = "Zyrakq"
+
 [git.files]
-"git/gitconfig" = "~/.gitconfig"
+"git/gitconfig" = { target = "~/.gitconfig", type = "template" }
 
 [settings]
 default_target_type = "automatic"

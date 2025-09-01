@@ -4,11 +4,13 @@ includes = [".dotter/includes/arch.toml"]
 packages = [
     "nano",
     "bash",
-    "oh-my-zsh-git",
-    "git"
+    "zsh-autosuggestions",
+    "zsh-syntax-highlighting",
+    "git",
+    "openssh",
 ]
 
 [files]
 
 [variables]
-managers = ["pacman", "yay" ]
+managers = ["pacman", "yay"]

@@ -9,7 +9,8 @@ packages = [
     "git",
     "snapd",
     "openssh-server",
-    # Note: zsh-autosuggestions и zsh-syntax-highlighting нужно устанавливать отдельно в Ubuntu
+    # Note: zsh-autosuggestions теперь устанавливается через git clone в oh-my-zsh
+    # Note: zsh-syntax-highlighting все еще нужно устанавливать отдельно в Ubuntu
 ]
 
 [shell.variables.installers.apt.commands]

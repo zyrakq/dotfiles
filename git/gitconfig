@@ -1,5 +1,5 @@
 [user]
-	email = serg.shehov@tutanota.com
-	name = Zeritiq
+	email = "{{git_email}}"
+	name = "{{git_name}}"
 [core]
 	editor = code --wait
