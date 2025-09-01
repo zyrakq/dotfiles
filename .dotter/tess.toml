@@ -5,6 +5,7 @@ packages = [
     "nano",
     "bash",
     "zsh-autosuggestions",
+    "zsh-syntax-highlighting",
     "git",
     "snapd",
     "openssh-server",
@@ -14,3 +15,5 @@ packages = [
 
 [variables]
 managers = ["apt"]
+git_email = "s.shehovtsov@mkomov.com"
+git_name = "Sergey Shekhovtsov"

@@ -2,25 +2,14 @@
 os = "ubuntu"
 
 [shell.variables.installers.apt]
-packages = [
-    "nano",
-    "bash",
-    "zsh",
-    "git",
-    "snapd",
-    "openssh-server",
-    # Note: zsh-autosuggestions теперь устанавливается через git clone в oh-my-zsh
-    # Note: zsh-syntax-highlighting все еще нужно устанавливать отдельно в Ubuntu
-]
+packages = ["nano", "bash", "zsh", "git", "snapd", "openssh-server"]
 
 [shell.variables.installers.apt.commands]
 install = "sudo apt update && sudo apt install -y"
 uninstall = "sudo apt remove -y"
 
 [shell.variables.installers.snap]
-packages = [
-    # Можно добавить snap пакеты если нужно
-]
+packages = []
 
 [shell.variables.installers.snap.commands]
 install = "sudo snap install"
