@@ -20,6 +20,13 @@ depends = ["shell"]
 [openssh.files]
 "openssh/ssh-agent.service" = "~/.config/systemd/user/ssh-agent.service"
 
+
+[openssh-server]
+depends = ["shell"]
+
+[openssh-server.files]
+"openssh/ssh-agent.service" = "~/.config/systemd/user/ssh-agent.service"
+
 [bash]
 depends = ["shell"]
 
@@ -48,6 +55,9 @@ depends = ["zsh", "powerline", "zsh-autosuggestions", "zsh-syntax-highlighting"]
 "zsh/zshrc" = { target = "~/.zshrc", type = "symbolic" }
 
 [oh-my-zsh-git.variables]
+
+[snapd]
+depends = ["shell"]
 
 [yay]
 depends = ["shell"]

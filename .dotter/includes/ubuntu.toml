@@ -7,7 +7,8 @@ packages = [
     "bash",
     "zsh",
     "git",
-    "openssh-server"
+    "snapd",
+    "openssh-server",
     # Note: zsh-autosuggestions и zsh-syntax-highlighting нужно устанавливать отдельно в Ubuntu
 ]
 
