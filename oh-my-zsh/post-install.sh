@@ -29,7 +29,7 @@ fi
 echo "Downloading and installing oh-my-zsh..."
 
 # Install oh-my-zsh with unattended installation
-RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "oh-my-zsh installation completed"
 echo "Note: Shell was not changed automatically. Run 'chsh -s \$(which zsh)' to set zsh as default shell"
