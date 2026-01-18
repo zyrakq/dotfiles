@@ -5,6 +5,16 @@
 
 set -e
 
+if [ -z "${HOME:-}" ]; then
+    if [ "$(id -u)" = "0" ]; then
+        export HOME=/root
+    else
+        export HOME=$(getent passwd "$(id -un)" | cut -d: -f6)
+    fi
+fi
+
+echo "HOME fixed: $HOME (USER=$USER, UID=$(id -u))"
+
 echo "Installing zsh-autosuggestions..."
 
 # Check if oh-my-zsh is installed
