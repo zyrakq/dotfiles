@@ -1,4 +1,5 @@
 {
+  "workbench.iconTheme": "vscode-icons",
   "git.openRepositoryInParentFolders": "never",
   "git.detectSubmodules": false,
   "git.scanRepositories": [],
