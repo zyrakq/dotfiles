@@ -46,7 +46,7 @@
     },
     "features": {
         "ghcr.io/zyrakq/arch-devcontainer-features/clone-repo:1": {
-            "repoUrl": "git@github.com:zeritiq/dotfiles.git",
+            "repoUrl": "git@github.com:zyrakq/dotfiles.git",
             "targetDir": "/config/.dotfiles"
         }
     },

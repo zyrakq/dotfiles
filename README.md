@@ -91,34 +91,19 @@ Follow these steps to open the development container in VSCode:
 2. **📥 Clone the Repository**:
 
    ```bash
-   git clone git@github.com:zeritiq/dotfiles.git
+   git clone git@github.com:zyrakq/dotfiles.git
    cd dotfiles
    ```
 
-3. **⚙️ Set Up Environment Variables**:
-   - 📄 Copy the example `.env` file from the desired configuration folder:
-
-     ```bash
-     cp .devcontainer/arch-kde/.env.example .devcontainer/.env
-     ```
-
-     or
-
-     ```bash
-     cp .devcontainer/arch/.env.example .devcontainer/.env
-     ```
-
-   - ✏️ Modify the `.env` file if necessary.
-
-4. **📂 Open the Project in VSCode**:
+3. **📂 Open the Project in VSCode**:
    - 📁 Open the repository folder in VSCode.
    - 🔄 When prompted, click "Reopen in Container".
 
-5. **⏳ Wait for the Container to Build**:
+4. **⏳ Wait for the Container to Build**:
    - 🔨 The container will be built and configured automatically.
    - 📦 This includes installing required packages and cloning the repository inside the container.
 
-6. **🎉 Start Working**:
+5. **🎉 Start Working**:
    - ✅ Once the container is ready, you can start working on your project.
 
 For more details on DevContainers, refer to the [VSCode Dev Containers documentation](https://code.visualstudio.com/docs/devcontainers/containers).
