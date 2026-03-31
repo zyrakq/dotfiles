@@ -1,0 +1,17 @@
+# vds.sh Netherlands
+includes = [".dotter/includes/debian.toml"]
+
+packages = [
+    "nano",
+    "bash",
+    "zsh-autosuggestions",
+    "zsh-syntax-highlighting",
+    "git",
+    "snapd",
+    "openssh-server",
+]
+
+[files]
+
+[variables]
+managers = ["apt"]

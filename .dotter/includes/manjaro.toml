@@ -1,5 +1,5 @@
 [shell.variables]
-os = "arch"
+os = "manjaro"
 
 [shell.variables.installers.pacman.commands]
 install = "sudo pacman -Syu --noconfirm"

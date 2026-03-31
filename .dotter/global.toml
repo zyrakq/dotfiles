@@ -18,15 +18,14 @@ depends = ["shell"]
 [openssh]
 depends = ["shell"]
 
-[openssh.files]
-"openssh/ssh-agent.service" = "~/.config/systemd/user/ssh-agent.service"
-
-
 [openssh-server]
 depends = ["shell"]
 
-[openssh-server.files]
-"openssh/ssh-agent.service" = "~/.config/systemd/user/ssh-agent.service"
+[ssh-agent]
+depends = ["openssh-server", "openssh"]
+
+[ssh-agent.files]
+"ssh-agent/ssh-agent.service" = "~/.config/systemd/user/ssh-agent.service"
 
 [bash]
 depends = ["shell"]
