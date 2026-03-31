@@ -2,7 +2,19 @@
 os = "debian"
 
 [shell.variables.installers.apt]
-packages = ["nano", "bash", "zsh", "git", "snapd", "openssh-server"]
+packages = [
+    "nano",
+    "bash",
+    "zsh",
+    "git",
+    "snapd",
+    "openssh-server",
+    "docker-ce",
+    "docker-ce-cli",
+    "containerd.io",
+    "docker-buildx-plugin",
+    "docker-compose-plugin"
+]
 
 [shell.variables.installers.apt.commands]
 install = "sudo apt update && sudo apt install -y"

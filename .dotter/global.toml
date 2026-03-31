@@ -72,5 +72,23 @@ git_name = "Zyrakq"
 [git.files]
 "git/gitconfig" = { target = "~/.gitconfig", type = "template" }
 
+[docker]
+depends = ["shell"]
+
+[docker-ce]
+depends = ["docker"]
+
+[docker-ce-cli]
+depends = ["docker-ce"]
+
+["containerd.io"]
+depends = ["docker-ce"]
+
+[docker-buildx-plugin]
+depends = ["docker-ce"]
+
+[docker-compose-plugin]
+depends = ["docker-ce"]
+
 [settings]
 default_target_type = "automatic"
