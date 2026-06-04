@@ -1,0 +1,16 @@
+# FirstVDS Incus NL
+includes = [".dotter/includes/arch.toml"]
+
+packages = [
+    "nano",
+    "bash",
+    "zsh-autosuggestions",
+    "zsh-syntax-highlighting",
+    "git",
+    "openssh",
+]
+
+[files]
+
+[variables]
+managers = ["pacman", "yay"]
